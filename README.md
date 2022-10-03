@@ -27,8 +27,8 @@ init_exec ++
 ```
 
 ## CLI API contract
-You can define your own CLI contract which will used to execute all CLI contract operations upon CLI command execution.
-Default CLI contract `init->exec->clean` is already provided:
+You can define your own CLI contract which will be used to execute CLI contract operations upon CLI command execution.
+Default CLI contract `init->exec->clean` is already provided as a template:
 ```
 for app in ${APPS[@]}; do
     start=$SECONDS
@@ -54,4 +54,15 @@ init_exec() {
 init_clean() {
     echo "init_clean ++"
 }
+```
+
+### What it takes to add a new CLI command
+1. You need to add shell script with you command name to `scripts` folder. For example `kafka.sh` (you can take existing one as template)
+2. Add a new command variable under `# COMMAND LIST` (see file cli.sh, line #11)
+3. Update the usage section (cli.sh, line #39)
+4. Update func_exist with you newly introcuded command variable name (cli.sh, line #66)
+
+As a result you can issue your newly added command:
+```
+./cli.sh -a kafka
 ```
