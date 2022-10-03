@@ -4,19 +4,19 @@ Separate CLI commands can be added without interferring with exising CLI API's t
 
 # CLI Shell template usage examples
 ## How to run multiple commands in sequence:
-{code}
+{pre}
 ./cli.sh -a init,run,stop
-{code}
+{pre}
 
 Argument '-a' gives a possibility to run multiple commands in sequence. If one of those commands fails the remaining ones will be skipped.
 
 ## How to run a command and pass some specific configuration
-{code}
+{pre}
 ./cli -a init,run -r gold
-{code}
+{pre}
 
 As a result running this commands two commands [init;run] will be executed and repository variable (r) where the value is [gold] will be passed to command [init]:
-{code}
+{pre}
 ./cli.sh -a init,run -r gold
 ===== Initialization: init =====
 MODE: embed
@@ -24,4 +24,4 @@ REPOS: gold
 init_init ++
 ===== Execution: init =====
 init_exec ++
-{code}
+{pre}
